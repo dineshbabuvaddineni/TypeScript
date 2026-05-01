@@ -8,6 +8,7 @@
 //Ex:      var age:number=30
 //Ex:      var age=30
 
+
 // var age =30;
 // console.log(age);
 
