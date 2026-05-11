@@ -114,7 +114,7 @@ console.log(str1); //welcome
 //multiline string
 
 let multiline:string =`Welcome
-                to Typescript`;
+                 to Typescript`;
 
 console.log(multiline);
 
