@@ -99,7 +99,7 @@ console.log(student1.getSummary());
 type product= {
         name:string,
         price:number,
-        getinfo: ()=>string
+        getInfo: ()=>string
 };
 
 let book1:product={
@@ -108,9 +108,97 @@ let book1:product={
         getInfo:function(){
                 return `${this.name} costs ${this.price}`
         }
+}
 
+let book2:product=
+{
+        name:"Learn Python",
+        price:500,
+        getInfo:function(){
+                return `${this.name} costs ${this.price}`
+        }
 
 }
+
+let book3:product=
+{
+        name:"Learn Java Script",
+        price:600,
+        getInfo:function(){
+                return `${this.name} costs ${this.price}`
+        }
+}
+
+console.log(book1.getInfo()); //Learn java costs 300
+console.log(book2.getInfo()); //Learn Python costs 500
+console.log(book3.getInfo()); //Learn Java script costs 600
+
+//Ex2: Intersection Types
+type Personal={
+        name:string,
+        age:number;
+} ;
+type Contact={
+        email:string,
+        phone:number
+}
+
+type Candidate=Personal & Contact &
+{
+        getContactInfo:()=>string;
+}
+
+let candidate: Candidate={
+        name:"scott",
+        age:25,
+        email:"dinesh@gmail.com",
+        phone:9934567213,
+        getContactInfo:function(){
+                return `${this.name} can be contacted at ${this.email} or ${this.phone}`;
+        }
+
+}
+console.log(candidate.getContactInfo());
+
+
+
+//4. Using the classes
+class Person{
+        ssn:string;
+        firstName:string;
+        lastName:string;
+
+
+
+constructor(ssn:string,firstName:string,lastName:string)
+{
+        this.ssn=ssn;
+        this.firstName=firstName;
+        this.lastName=lastName;
+}
+
+getFullName():string{
+        return `${this.firstName} ${this.lastName}`;
+}
+
+getDetails():string{
+        return `SSN:${this.ssn},Name:${this.getFullName()}`;
+}
+}
+
+
+
+//object creation
+let Person1=new Person('11212333333','John','Kenendy');
+console.log(Person1.getDetails());
+
+let Person2=new Person('22222222222','David','Goggins');
+console.log(Person2.getDetails());
+
+let Person3=new Person('44444444444','Dwyne','Jhonson');
+console.log(Person3.getDetails());
+
+
 
 
 
