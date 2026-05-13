@@ -28,17 +28,97 @@ let employee:object={
         job:"Engineer"
 }
 
-let employee1={
-        name1:"John",
+let employee1 ={
+        name:"John",
         age:30,
         salary:50000,
         job:"Engineer",
-        getDetails:function(){
+        getDetails:function(): string{
                 //console.log(this.name1,this.age,this.salary,this.job)
-                return `${this.name1} is a ${this.job} earning ${this.salary}`
-
+                return `${this.name} is a ${this.job} earning ${this.salary}`;
         }
 }
+console.log(typeof employee1); //Object
+
+//accessing object - approach 1 (using dot notation)
+
+console.log(employee1.name,employee1.salary,employee1.job); //
+console.log(employee1.getDetails()); //John is a Engineer earning 50000
+
+//accessing object - approach2(using braket notation)
+console.log(employee1["name"],employee1["salary"],employee1["job"]); //John 50000 Engineer
+console.log(employee1["getDetails"]()); //John is a Engineer earning 50000
+
+//Modify the value
+employee1.job="Manager";
+console.log("Modified job is:",employee1.job); 
+
+
+//2. Inline Type Object - We also define the data  type of the keys(TS)
+let student:{
+        name:string,
+        age:number,
+        grade:string,
+        getSummary:()=>string
+} =
+{
+        name:"scott",
+        age:15,
+        grade:"A",
+        getSummary: function()
+        {
+                return `${this.name} is ${this.age} years old and scored grade ${this.grade}`;
+        }
+}
+
+console.log(student.getSummary()); //scott is 15 years old and scored gradeA
+
+//Problem with Inline Type Object: Need to repeat structure for every object
+let student1:{
+        name:string,
+        age:number,
+        grade:string,
+        getSummary:()=>string
+} =
+{
+        name:"James",
+        age:20,
+        grade:"B",
+        getSummary: function()
+        {
+                return `${this.name} is ${this.age} years old and scored grade ${this.grade}`;
+        }
+}
+
+console.log(student1.getSummary()); 
+
+
+//3. Using type aliases(TS) :allows creating a new name for an existing type
+
+//Example1; 
+type product= {
+        name:string,
+        price:number,
+        getinfo: ()=>string
+};
+
+let book1:product={
+        name:"Learn Java",
+        price:300,
+        getInfo:function(){
+                return `${this.name} costs ${this.price}`
+        }
+
+
+}
+
+
+
+
+
+
+
+
 
 
  
